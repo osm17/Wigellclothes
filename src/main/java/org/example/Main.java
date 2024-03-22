@@ -71,7 +71,13 @@ public class Main {
         Pants pants = builder.addMaterial(material).addType(type).addFit(fit).addPrice(price).build();
 
         SetColorCommand setColorCommand = new SetColorCommand(pants, color);
+        SetMaterialCommand setMaterialCommand = new SetMaterialCommand(pants, material);
+        SetPriceCommand setPriceCommand = new SetPriceCommand(pants,price);
+
         pipeline.addCommand(setColorCommand);
+        pipeline.addCommand(setMaterialCommand);
+        pipeline.addCommand(setPriceCommand);
+
         pipeline.executeCommands();
         lastCreatedItem = pants;
 
@@ -90,7 +96,11 @@ public class Main {
         Skirt skirt = skirtBuilder.addMaterial(material).addPattern(pattern).addWaistline(waistline).addPrice(price).build();
 
         SetColorCommand setColorCommand = new SetColorCommand(skirt, color);
+        SetMaterialCommand setMaterialCommand = new SetMaterialCommand(skirt, material);
+        SetPriceCommand setPriceCommand = new SetPriceCommand(skirt,price);
         pipeline.addCommand(setColorCommand);
+        pipeline.addCommand(setMaterialCommand);
+        pipeline.addCommand(setPriceCommand);
         pipeline.executeCommands();
         lastCreatedItem = skirt;
 
@@ -110,8 +120,12 @@ public class Main {
         TShirt tShirt = tShirtBuilder.addMaterial(material).addSleeve(sleeves).addNeck(neck).addPrice(price).build();
 
         SetColorCommand setColorCommand = new SetColorCommand(tShirt, color);
+        SetMaterialCommand setMaterialCommand = new SetMaterialCommand(tShirt, material);
+        SetPriceCommand setPriceCommand = new SetPriceCommand(tShirt,price);
         pipeline.addCommand(setColorCommand);
         pipeline.executeCommands();
+        pipeline.addCommand(setMaterialCommand);
+        pipeline.addCommand(setPriceCommand);
         lastCreatedItem = tShirt;
 
 
